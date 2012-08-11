@@ -4,14 +4,14 @@ RewriteEngine On
 # Custom rewrites
 
 # Framework rewrites
-RewriteRule ([^/]+).css$	mvc/Loader.php?_page=compression/compress-css/$1	[L]
-RewriteRule ([^/]+).js$		mvc/Loader.php?_page=compression/compress-javascript/$1	[L]
+RewriteRule ([^/]+).css$ mvc/Loader.php?_page=compression/compress-css/$1 [L]
+RewriteRule ([^/]+).js$ mvc/Loader.php?_page=compression/compress-javascript/$1 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*).xml$		mvc/Loader.php?_page=$1	[B,QSA,L]
+RewriteRule ^(.*).xml$ mvc/Loader.php?_page=$1 [B,QSA,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$			mvc/Loader.php?_page=$1	[B,QSA,L]
-RewriteRule ^$				mvc/Loader.php			[B,QSA,L]
+RewriteRule ^(.*)$ mvc/Loader.php?_page=$1 [B,QSA,L]
+RewriteRule ^$ mvc/Loader.php [B,QSA,L]
