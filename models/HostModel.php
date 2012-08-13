@@ -23,11 +23,11 @@ class HostModel extends Model {
 		$className = $this->getUrlized($className);
 		$methodName = $this->getUrlized($methodName);
 		
-		while (substr($className, 0, 1) === '-') {
+		while ($className{0} === '-') {
 			$className = substr($className, 1);
 		}
 		
-		while (substr($methodName, 0, 1) === '-') {
+		while ($methodName{0} === '-' || $methodName{0} === '_') {
 			$methodName = substr($methodName, 1);
 		}
 		
