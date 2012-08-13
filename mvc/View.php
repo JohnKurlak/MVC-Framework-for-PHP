@@ -136,7 +136,7 @@ class View {
 		$urlized = preg_replace("/[^a-z\-]+/", '', $urlized);
 
 		// Remove leading hyphens
-		while (substr($urlized, 0, 1) === '-') {
+		while ($urlized{0} === '-' || $urlized{0} === '_') {
 			$urlized = substr($urlized, 1);
 		}
 		
