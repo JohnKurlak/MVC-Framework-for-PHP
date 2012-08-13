@@ -20,16 +20,8 @@ class HostModel extends Model {
 			'' :
 			str_replace('Controller', '', $className);
 		$methodName = ($methodName === 'Index') ? '' : $methodName;
-		$className = $this->getUrlized($className);
-		$methodName = $this->getUrlized($methodName);
-		
-		while ($className{0} === '-') {
-			$className = substr($className, 1);
-		}
-		
-		while ($methodName{0} === '-' || $methodName{0} === '_') {
-			$methodName = substr($methodName, 1);
-		}
+		$className = View::getUrlized($className);
+		$methodName = View::getUrlized($methodName);
 		
 		if ($className === '' && $methodName === '') {
 			$this->page = 'index';
@@ -43,11 +35,6 @@ class HostModel extends Model {
 		else {
 			$this->page = $className . '/' . $methodName;
 		}
-	}
-	
-	private function getUrlized($url) {
-		return preg_replace_callback("/([A-Z]+)/", array($this, 'fixCase'),
-			$url);
 	}
 	
 	private function fixCase($matches) {
