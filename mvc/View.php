@@ -132,8 +132,8 @@ class View {
 		$urlized = preg_replace_callback("/([A-Z])/", array(self, 'fixCase'),
 			$url);
 		
-		// Remove non-letters and non-hyphens
-		$urlized = preg_replace("/[^a-z\-]+/", '', $urlized);
+		// Remove non-letters, non-numbers, and non-hyphens
+		$urlized = preg_replace("/[^a-z0-9\-]+/", '', $urlized);
 
 		// Remove leading hyphens
 		while ($urlized{0} === '-' || $urlized{0} === '_') {
